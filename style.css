@@ -55,6 +55,16 @@ section {
   text-decoration: underline;
 }
 
+.hamburger {
+  display: none;
+}
+
+.hamburger-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 button {
   transition: 300ms ease-in-out;
 }
@@ -90,6 +100,7 @@ button:hover {
 .hero {
   background-image: url("assets/hero-bg.png");
   background-size: cover;
+  background-position: center;
   position: relative;
 }
 
@@ -163,7 +174,8 @@ button:hover {
   border-top: 1px solid #555;
   padding-top: 4rem;
   margin-top: 4rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   justify-content: space-between;
 
   text-transform: uppercase;
@@ -298,6 +310,7 @@ button:hover {
 .footer {
   background-image: url(assets/footer-bg.png);
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
   text-align: center;
 
@@ -329,10 +342,85 @@ button:hover {
 
   display: flex;
   gap: 1rem;
-  alighn-items: center;
+  align-items: center;
 }
 
 .copyright {
   color: #888;
   margin-top: 2rem;
+}
+
+@media (max-width: 576px) {
+  section {
+    padding-inline: 2rem;
+  }
+  .hamburger {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .sub {
+    display: none;
+  }
+
+  .hero-img::after {
+    top: 20%;
+    right: 30%;
+
+    padding-inline: 1.6rem;
+  }
+
+  .hero-img img:last-child {
+    top: 35%;
+  }
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-card:first-child {
+    grid-row: initial;
+  }
+  .grid-card:nth-child(2) {
+    grid-column: initial;
+  }
+  .grid-card:nth-child(3) {
+    grid-column: initial;
+  }
+  .grid-card:nth-child(4) {
+    grid-column: initial;
+  }
+
+  .featured-cards {
+    flex-direction: column;
+  }
+  .host {
+    flex-direction: column;
+    text-align: center;
+  }
+  .socials {
+    justify-content: center;
+  }
+
+  .footer {
+    background-size: 100% 100%;
+    padding-block: 6rem;
+  }
+
+  .footer-logo {
+    font-size: 4rem;
+  }
+
+  .footer-socials {
+    margin-top: 4rem;
+    width: 60%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
 }
